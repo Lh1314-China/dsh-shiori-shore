@@ -1,0 +1,74 @@
+{
+  "name": "dsh-shiori-shore",
+  "version": "0.3.0",
+  "description": "Bilibili hands for DeepSeek Harness: 59 tools (danmaku, DMs, feed, dynamics, video frames) through a self-contained Python MCP server. 汐岸：给 DSH 的 B 站手。",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "lib",
+    "python",
+    "cordis.patch.yml",
+    "README.md",
+    "NOTICE.md",
+    "LICENSE",
+    "THIRD-PARTY-NOTICES.md"
+  ],
+  "engines": {
+    "node": ">=22",
+    "dsh": ">=0.2.1-rc.2 <0.5.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "*",
+    "@deepseek-ai/schemastery": "*"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-tools": {
+      "optional": true
+    },
+    "@deepseek-ai/schemastery": {
+      "optional": true
+    }
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "compatibility": {
+      "dsh": ">=0.2.1-rc.2 <0.5.0",
+      "node": ">=22",
+      "profiles": [
+        "desktop",
+        "web"
+      ]
+    }
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis-plugin",
+    "bilibili",
+    "mcp",
+    "danmaku",
+    "live"
+  ],
+  "author": {
+    "name": "Lh1314-China",
+    "url": "https://github.com/Lh1314-China"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lh1314-China/dsh-shiori-shore.git"
+  },
+  "homepage": "https://github.com/Lh1314-China/dsh-shiori-shore#readme",
+  "bugs": {
+    "url": "https://github.com/Lh1314-China/dsh-shiori-shore/issues"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,29 @@
+# ============================================================================
+# dsh-shiori-shore —— 汐岸 bundle patch
+# ============================================================================
+# 一行主机插件：内置 Python MCP 子进程，把 B 站操作注册成 shore_* 工具。
+#
+# ⚠️ entry id 必须与 index.js 的 `export const name` 一致（shiori-shore），
+#    否则设置页读不到 Config。
+# ============================================================================
+
+- insert:
+    - id: shiori-shore
+      name: dsh-shiori-shore
+      config:
+        enabled: true
+        # 空 = 自动探测（SHORE_PYTHON → python → py -3 → python3）
+        pythonPath: 'python'
+        # 空 = ~/.dsh/shiori-shore
+        dataDir: ''
+        # 工具名前缀，默认 shore_
+        toolPrefix: 'shore_'
+        # 只放开部分工具时填名字；空 = 全部
+        toolsAllow: []
+        startupTimeoutMs: 60000
+        # 本地账本（工具调用流水）
+        ledger: true
+        # 新消息唤醒：默认关；开了要指定目标会话
+        wakeEnabled: false
+        wakeSessionId: ''
+        wakeIntervalSec: 45

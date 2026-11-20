@@ -1,0 +1,7 @@
+# 汐岸重写版 · Python 依赖
+#
+# 只保留 MCP 运行时本身。HTTP 用标准库 urllib，签名用 hashlib，
+# 不引入任何 B 站第三方 SDK，也不引入 requests / aiohttp。
+#
+# 安装：<venv>\Scripts\python.exe -m pip install -r requirements.txt
+mcp>=1.0.0
