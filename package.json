@@ -1,6 +1,6 @@
 {
   "name": "dsh-shiori-shore",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Bilibili hands for DeepSeek Harness: 59 tools (danmaku, DMs, feed, dynamics, video frames) through a self-contained Python MCP server. 汐岸：给 DSH 的 B 站手。",
   "type": "module",
   "main": "index.js",

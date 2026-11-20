@@ -7,13 +7,14 @@
 from __future__ import annotations
 
 import json
+import time
 import uuid
 from typing import Any
 
 from .client import API_ROOT, Client, ShoreError
 
 VC = "https://api.vc.bilibili.com"
-_DEV_ID = str(uuid.uuid4()).upper()
+_DEV_ID = "A6716E9A-7CE3-47AF-994B-F0B34178D28D"
 
 
 def _self_uid(cli: Client) -> int:
@@ -121,11 +122,14 @@ async def send_message(cli: Client, receiver_uid: int, text: str) -> dict:
         "msg[content]": json.dumps({"content": body}, ensure_ascii=False),
         "msg[dev_id]": _DEV_ID,
         "msg[new_face_version]": 0,
-        "from_firework": 0,
+        "msg[timestamp]": int(time.time()),
+        "from_filework": 0,
         "build": 0,
         "mobi_app": "web",
     }
-    data = cli.post_write(f"{VC}/web_im/v1/web_im/send_msg", payload, referer="https://message.bilibili.com/")
+    # w_sender_uid / w_receiver_id 是这条接口的必需 query（缺了回 -400）
+    url = f"{VC}/web_im/v1/web_im/send_msg?w_sender_uid={self_uid}&w_receiver_id={int(receiver_uid)}"
+    data = cli.post_write(url, payload, referer="https://message.bilibili.com/")
     return {"receiver_uid": int(receiver_uid), "text": body[:120], "result": data}
 
 
